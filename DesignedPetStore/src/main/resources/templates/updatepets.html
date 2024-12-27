@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Pet Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .form-header h1 {
+            font-size: 1.8rem;
+            color: #007BFF;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+        }
+        textarea {
+            resize: vertical;
+        }
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Add Pets Details</h1>
+        </div>
+        <form th:action="@{/pets/update/{id}(id=${pet.id})}" th:object="${pet}" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" th:field="*{name}" name="name" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" th:field="*{age}" name="age" placeholder="Enter age" required>
+            </div>
+            <div class="form-group">
+                <label for="breed">Breed</label>
+                <input type="text" id="breed" th:field="*{breed}" name="breed" placeholder="Enter breed" required>
+            </div>
+            <div class="form-group">
+                <label for="species">Species</label>
+                <input type="text" id="species" th:field="*{species}" name="species" placeholder="Enter species" required>
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" id="color" th:field="*{color}" name="color" placeholder="Enter color" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="price" th:field="*{price}" name="price" placeholder="Enter price" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description"  th:field="*{description}" name="description" placeholder="Enter description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" th:field="*{status}" name="status" required>
+                    <option value="">-- Select Status --</option>
+                    <option value="available">Available</option>
+                    <option value="notAvailable">Not Available</option>
+                </select>
+            </div>
+            <div class="form-group">
+      			<label for="imageUrl">Image URL:</label>
+      			<input type="url" id="imageUrl" name="imageUrl" class="form-control" th:field="*{imageUrl}" placeholder="Enter image URL">
+    		</div>
+            <input type="submit" value="UpdatePet" class="btn">
+        </form>
+        <div class="footer">
+            <p>&copy; 2024 Pet Management System</p>
+        </div>
+    </div>
+</body>
+</html>
