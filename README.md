@@ -1,4 +1,4 @@
-Designed Pet Store Application
+<h1>Designed Pet Store Application</h1>
 
 Welcome to the Designed Pet Store Application, a Spring Boot-based project for managing and enhancing the experience of a modern pet store. This application serves as the backbone for managing pet-related data and operations, offering a robust, scalable, and user-friendly solution.
 
